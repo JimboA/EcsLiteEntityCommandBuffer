@@ -35,7 +35,7 @@ class UserEcbSystem : EcbSystem, IEcsRunSystem
 And add it to systems in startup:
 ```csharp
 ...
-EcsSystems systems = new EcsSystems (world, sharedData);
+EcsSystems systems = new EcsSystems (world);
 systems
     .Add (new UserEcbSystem(world))
     .Init ();
