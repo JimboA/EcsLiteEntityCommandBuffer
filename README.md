@@ -55,7 +55,7 @@ class UserRunSystem : IEcsRunSystem
     {
         ...
         var world = systems.GetWorld(); // getting the default world
-        var ecb = world.GetCommandBufferFrom<UserEcbSystem>(); // getting buffer from your EcbSystem
+        var ecb = world.GetCommandBufferFrom<UserEcbSystem>(); // getting buffer from your EcbSystem. You can cache it
         ref var laterComponent = ref ecb.Add<UserComponent>(entity, out var cmdEntity) // when buffer will be executed a UserComponent will be added to entity
         // out parameter here return a packed ecb command. You can store it and execute that particular command later. Or just ignore it with out _
         ...
