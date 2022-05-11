@@ -73,14 +73,15 @@ class UserRunSystem : IEcsRunSystem
         var seq = ecb.Sequence(out var seqEntity); // getting special sequence
         seq.Add<UserComponent>(entity1);
         seq.Add<UserSecondComponent>(entity1);
-        seq.Del<AnoterComponent>(entity2);
+        seq.Del<AnotherComponent>(entity2);
         //you can store seqEntity and execute that sequence later.
         ...
     }
 }
 ```
 Now let's talk about execution.
-Commands are executed in ecb systems. Important! The ECB system only provides the API for execution. The order and rules of execution are determined by the user.
+Commands are executed in ecb systems. 
+Important! EcbSystems only provides the API for execution. The order and rules of execution are determined by the user.
 For instance:
 ```csharp
 using Leopotam.EcsLite;
