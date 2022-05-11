@@ -59,7 +59,7 @@ class UserRunSystem : IEcsRunSystem
         ref var laterComponent = ref ecb.Add<UserComponent>(entity, out var cmdEntity) // when buffer will be executed a UserComponent will be added to entity
         // out parameter here return a packed ecb command. You can store it and execute that particular command later. Or just ignore it with out _
         // for performance reasons you can pass cached EcsPool<> to commands methods:
-        ref var laterComponent = ref ecb.Add(entity, _cachedUserComponentPool, out _);
+        ref UserComponent laterComponent = ref ecb.Add(entity, _cachedUserComponentPool, out _);
         ...
     }
 }
