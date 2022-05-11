@@ -58,6 +58,8 @@ class UserRunSystem : IEcsRunSystem
         var ecb = world.GetCommandBufferFrom<UserEcbSystem>(); // getting buffer from your EcbSystem. You can cache it
         ref var laterComponent = ref ecb.Add<UserComponent>(entity, out var cmdEntity) // when buffer will be executed a UserComponent will be added to entity
         // out parameter here return a packed ecb command. You can store it and execute that particular command later. Or just ignore it with out _
+        // for performance reasons you can pass cached EcsPool<> to commands methods:
+        ref var laterComponent = ref ecb.Add(entity, _cachedUserComponentPool, out _);
         ...
     }
 }
@@ -72,10 +74,10 @@ class UserRunSystem : IEcsRunSystem
         var world = systems.GetWorld(); // getting the default world
         var ecb = world.GetCommandBufferFrom<UserEcbSystem>(); // getting buffer from your EcbSystem
         var seq = ecb.Sequence(out var seqEntity); // getting special sequence
-        seq.Add<UserComponent>(entity1);
+        seq.Add<UserComponent>(entity1) = new UserComponent{ Value = blabla };
         seq.Add<UserSecondComponent>(entity1);
         seq.Del<AnotherComponent>(entity2);
-        //you can store seqEntity and execute that sequence later.
+        //you can store seqEntity and execute that sequence later
         ...
     }
 }
