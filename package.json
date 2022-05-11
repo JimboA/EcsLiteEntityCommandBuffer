@@ -1,0 +1,19 @@
+{
+    "name": "com.jimboa.ecsliteentitycommandbuffer",
+    "author": "JimboA",
+    "displayName": "LeoECS Lite Entity Command Buffer",
+    "description": "Entity command bufer for Leopotam EcsLite framework",
+    "unity": "2020.3",
+    "version": "2022.5.12",
+    "keywords": [
+        "leoecslite",
+        "leoecs",
+        "ecs",
+        "entitycommandbuffer"
+    ],
+    "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JimboA/EcsLiteEntityCommandBuffer.git"
+  }
+}
