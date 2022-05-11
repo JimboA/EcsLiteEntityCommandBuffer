@@ -81,7 +81,9 @@ class UserRunSystem : IEcsRunSystem
 ```
 Now let's talk about execution.
 Commands are executed in ecb systems. 
-Important! EcbSystems only provides the API for execution. The order and rules of execution are determined by the user.
+
+> **Important!** EcbSystems only provides the API for execution. The order and rules of execution are determined by the user.
+
 For instance:
 ```csharp
 using Leopotam.EcsLite;
@@ -103,7 +105,7 @@ class UserEcbSystem : EcbSystem, IEcsRunSystem
 ```
 All execution methods has summary, so just read it and use :)
 
-!Important. The command buffer is deterministic. In what order the commands were assigned in which order they will be executed if the user has not specified otherwise.
+> **Important!** The command buffer is deterministic. In what order the commands were assigned in which order they will be executed if the user has not specified otherwise.
 
 # License
 The software is released under the terms of the [MIT license](./LICENSE.md).
