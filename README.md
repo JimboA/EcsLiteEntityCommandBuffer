@@ -41,7 +41,7 @@ systems
     .Init ();
 ...
 ```
-The ECB system is responsible for creating and executing the buffer. Think of it as a synchronization point. For each such system, its own buffer is created and the world is attached to it. An command buffer can only be associated with one world and one ECB system.
+The ECB system is responsible for creating and executing the buffer. Think of it as a synchronization point. For each such system, its own buffer is created and the world is attached to it. Each command buffer can only be associated with one world and one ECB system.
 
 The command buffer can be accessed from anywhere in your code via the ecs world:
 ```csharp
