@@ -101,6 +101,8 @@ class UserEcbSystem : EcbSystem, IEcsRunSystem
         foreach(var entity in _userFilter)
         {
             ExecuteCommandsOnEntity(entity); // execute all commands that belong to the entity
+            ExecutePackedCommand(packedCmdEntity) // execute particular command or sequence
+            // etc.
         }    
     }
     ...
