@@ -73,7 +73,7 @@ class UserRunSystem : IEcsRunSystem
         ...
         var world = systems.GetWorld(); // getting the default world
         var ecb = world.GetCommandBufferFrom<UserEcbSystem>(); // getting buffer from your EcbSystem
-        var seq = ecb.Sequence(out var seqEntity); // getting special sequence
+        ref var seq = ref ecb.Sequence(out var seqEntity); // getting special sequence
         seq.Add<UserComponent>(entity1) = new UserComponent{ Value = blabla };
         seq.Add<UserSecondComponent>(entity1);
         seq.Del<AnotherComponent>(entity2);
