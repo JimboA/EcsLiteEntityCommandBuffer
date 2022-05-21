@@ -226,7 +226,7 @@ namespace JimboA.EcsLite.ECB
         }
 
         [MethodImpl (MethodImplOptions.AggressiveInlining)]
-        internal int GetCommandsEntity(int entity)
+        private int GetCommandsEntity(int entity)
         {
             if(entity >= _sparseEntities.Length)
                 Array.Resize(ref _sparseEntities, entity << 1);
@@ -236,6 +236,10 @@ namespace JimboA.EcsLite.ECB
             {
                 commandsEntity = _bufferWorld.NewEntity();
                 _sparseEntities[entity] = commandsEntity + 1;
+            }
+            else
+            {
+                commandsEntity--;
             }
 
             return commandsEntity;
