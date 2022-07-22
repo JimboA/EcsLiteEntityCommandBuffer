@@ -62,7 +62,7 @@ namespace JimboA.EcsLite.ECB
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         protected void ClearCommandBuffer() => CommandBuffer.ClearAll();
 
-        public void PostDestroy(EcsSystems systems)
+        public void PostDestroy(IEcsSystems systems)
         {
             CommandBuffer.Destroy(_cachedType);
             CommandBuffer = null;
