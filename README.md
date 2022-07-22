@@ -27,7 +27,7 @@ using JimboA.EcsLite.ECB;
 
 class UserEcbSystem : EcbSystem, IEcsRunSystem
 {   
-    public void Run (EcsSystems systems) 
+    public void Run (IEcsSystems systems) 
     {
         // Will be called on each EcsSystems.Run() call.
     }
@@ -36,7 +36,7 @@ class UserEcbSystem : EcbSystem, IEcsRunSystem
 And add it to systems in startup:
 ```csharp
 ...
-EcsSystems systems = new EcsSystems (world);
+IEcsSystems systems = new IEcsSystems (world);
 systems
     .Add (new UserEcbSystem(world))
     .Init ();
@@ -51,7 +51,7 @@ using JimboA.EcsLite.ECB;
 
 class UserRunSystem : IEcsRunSystem
 {   
-    public void Run (EcsSystems systems) 
+    public void Run (IEcsSystems systems) 
     {
         ...
         var world = systems.GetWorld(); // getting the default world
@@ -68,7 +68,7 @@ In addition to the usual commands, you can also save specific sequences and exec
 ```csharp
 class UserRunSystem : IEcsRunSystem
 {   
-    public void Run (EcsSystems systems) 
+    public void Run (IEcsSystems systems) 
     {
         ...
         var world = systems.GetWorld(); // getting the default world
@@ -96,7 +96,7 @@ class UserEcbSystem : EcbSystem, IEcsRunSystem
 {   
     private EcsFilter _userFilter;
     ...
-    public void Run (EcsSystems systems) 
+    public void Run (IEcsSystems systems) 
     {
         foreach(var entity in _userFilter)
         {
